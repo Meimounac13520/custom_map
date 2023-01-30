@@ -116,7 +116,7 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
 
   @override
   Widget build(BuildContext context) {
-    final showZoom = true;
+    final showZoom = false;
     return SafeArea(
       child: Stack(
         children: [
