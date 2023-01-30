@@ -1,3 +1,5 @@
+library custom_map;
+
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
@@ -128,7 +130,8 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
             mapController: _mapController,
             layers: [
               TileLayerOptions(
-                urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                urlTemplate:
+                    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 subdomains: ['a', 'b', 'c'],
                 // attributionBuilder: (_) {
                 //   return Text("© OpenStreetMap contributors");
@@ -161,7 +164,7 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
             ),
           )),
           if (showZoom)
-          Positioned(
+            Positioned(
                 bottom: 120,
                 right: 5,
                 child: FloatingActionButton(
@@ -173,7 +176,7 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
                   child: Icon(Icons.add),
                 )),
           if (showZoom)
-          Positioned(
+            Positioned(
                 bottom: 60,
                 right: 5,
                 child: FloatingActionButton(
