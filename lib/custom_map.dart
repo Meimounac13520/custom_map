@@ -147,7 +147,8 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
                 child: Center(
                   child: StatefulBuilder(builder: (context, setState) {
                     return Text(
-                      _searchController.text,
+                      '',
+                      //_searchController.text,
                       textAlign: TextAlign.center,
                     );
                   }),
@@ -159,7 +160,7 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
               child: Icon(
                 Icons.location_pin,
                 color: Colors.green,
-                size: 50,
+                size: 40,
               ),
             ),
           )),
