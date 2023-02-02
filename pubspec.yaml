@@ -1,11 +1,11 @@
 name: custom_map
 description: A neww Flutter package project a customized Map stret map.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/Meimounac13520/custom_map
 
 
 environment:
-  sdk: '>=2.18.6 <3.0.0'
+  sdk: '>=2.18.4 <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
