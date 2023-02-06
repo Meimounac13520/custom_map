@@ -116,20 +116,10 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
 
   @override
   Widget build(BuildContext context) {
-    const showZoom = false;
+    final showZoom = false;
     return SafeArea(
       child: Stack(
         children: [
-          Align(
-            alignment: Alignment.topRight,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.black,
-              ),
-              onPressed: () => Get.back(),
-            ),
-          ),
           Positioned.fill(
               child: FlutterMap(
             options: MapOptions(
@@ -174,30 +164,6 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
               ),
             ),
           )),
-          if (showZoom)
-            Positioned(
-                bottom: 120,
-                right: 5,
-                child: FloatingActionButton(
-                  backgroundColor: Colors.green[200],
-                  onPressed: () {
-                    _mapController.move(
-                        _mapController.center, _mapController.zoom + 1);
-                  },
-                  child: const Icon(Icons.add),
-                )),
-          if (showZoom)
-            Positioned(
-                bottom: 60,
-                right: 5,
-                child: FloatingActionButton(
-                  backgroundColor: Colors.green[200],
-                  onPressed: () {
-                    _mapController.move(
-                        _mapController.center, _mapController.zoom - 1);
-                  },
-                  child: const Icon(Icons.remove),
-                )),
           Positioned(
             top: 0,
             left: 0,
@@ -213,6 +179,32 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
                   TextFormField(
                       controller: _searchController,
                       focusNode: _focusNode,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: HexColor('#9CA3AF')),
+                          //  borderRadius: const BorderRadius.all(Radius.circular(20)),
+                        ),
+                        errorBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: redcolor),
+                          //   borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        focusedErrorBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: redcolor),
+                          //  borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: HexColor('#9CA3AF')),
+                          // borderRadius: const BorderRadius.all(Radius.circular(20)),
+                        ),
+                        //  hintText: (hintText != null) ? hintText?.tr : hintText,
+                        // hintText: '',
+                        contentPadding: EdgeInsets.only(
+                            right: SizeConfig.getProportionateScreenWidth(10),
+                            left: SizeConfig.getProportionateScreenWidth(15),
+                            top: SizeConfig.getProportionateScreenWidth(32)),
+                        fillColor: Colors.white,
+                        filled: true,
+                      ),
                       onChanged: (String value) {
                         if (_debounce?.isActive ?? false) _debounce?.cancel();
 
