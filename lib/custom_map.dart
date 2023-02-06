@@ -116,10 +116,20 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
 
   @override
   Widget build(BuildContext context) {
-    final showZoom = false;
+    const showZoom = false;
     return SafeArea(
       child: Stack(
         children: [
+          Align(
+            alignment: Alignment.topRight,
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+              ),
+              onPressed: () => Get.back(),
+            ),
+          ),
           Positioned.fill(
               child: FlutterMap(
             options: MapOptions(
@@ -146,7 +156,7 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
               child: IgnorePointer(
                 child: Center(
                   child: StatefulBuilder(builder: (context, setState) {
-                    return Text(
+                    return const Text(
                       '',
                       //_searchController.text,
                       textAlign: TextAlign.center,
@@ -174,7 +184,7 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
                     _mapController.move(
                         _mapController.center, _mapController.zoom + 1);
                   },
-                  child: Icon(Icons.add),
+                  child: const Icon(Icons.add),
                 )),
           if (showZoom)
             Positioned(
@@ -186,7 +196,7 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
                     _mapController.move(
                         _mapController.center, _mapController.zoom - 1);
                   },
-                  child: Icon(Icons.remove),
+                  child: const Icon(Icons.remove),
                 )),
           Positioned(
             top: 0,
@@ -203,32 +213,6 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
                   TextFormField(
                       controller: _searchController,
                       focusNode: _focusNode,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: HexColor('#9CA3AF')),
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: redcolor),
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: redcolor),
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: HexColor('#9CA3AF')),
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                        //  hintText: (hintText != null) ? hintText?.tr : hintText,
-                        // hintText: '',
-                        contentPadding: EdgeInsets.only(
-                            right: SizeConfig.getProportionateScreenWidth(10),
-                            left: SizeConfig.getProportionateScreenWidth(15),
-                            top: SizeConfig.getProportionateScreenWidth(32)),
-                        fillColor: Colors.white,
-                        filled: true,
-                      ),
                       onChanged: (String value) {
                         if (_debounce?.isActive ?? false) _debounce?.cancel();
 
