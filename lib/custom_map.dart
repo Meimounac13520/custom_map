@@ -180,38 +180,7 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
                       TextFormField(
                           controller: _searchController,
                           focusNode: _focusNode,
-                          decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: HexColor('#9CA3AF')),
-                              //  borderRadius: const BorderRadius.all(Radius.circular(20)),
-                            ),
-                            errorBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: redcolor),
-                              //   borderRadius: BorderRadius.all(Radius.circular(20)),
-                            ),
-                            focusedErrorBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: redcolor),
-                              //  borderRadius: BorderRadius.all(Radius.circular(20)),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: HexColor('#9CA3AF')),
-                              // borderRadius: const BorderRadius.all(Radius.circular(20)),
-                            ),
-                            //  hintText: (hintText != null) ? hintText?.tr : hintText,
-                            // hintText: '',
-                            contentPadding: EdgeInsets.only(
-                                right:
-                                    SizeConfig.getProportionateScreenWidth(10),
-                                left:
-                                    SizeConfig.getProportionateScreenWidth(15),
-                                top:
-                                    SizeConfig.getProportionateScreenWidth(32)),
-                            fillColor: Colors.white,
-                            filled: true,
-                          ),
-                          onChanged: (String value) {
+                            onChanged: (String value) {
                             if (_debounce?.isActive ?? false)
                               _debounce?.cancel();
 
