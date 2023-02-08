@@ -167,15 +167,24 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
             top: 0,
             left: 0,
             right: 0,
-            child: Container(
-              margin: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: Row(
-                children: [
-                  Column(
+            child: Row(
+              children: [
+                InkWell(
+                  // padding: EdgeInsets.all(0),
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: Colors.black,
+                  ),
+                  onTap: () => Get.back(),
+                ),
+                Container(
+                  margin: const EdgeInsets.all(14),
+                  width: Get.size.width * 0.85,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Column(
                     children: [
                       TextFormField(
                           controller: _searchController,
@@ -244,16 +253,8 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
                       })),
                     ],
                   ),
-                  IconButton(
-                    padding: EdgeInsets.all(2),
-                    icon: Icon(
-                      Icons.arrow_back,
-                      color: Colors.black,
-                    ),
-                    onPressed: () => Get.back(),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           Positioned(
