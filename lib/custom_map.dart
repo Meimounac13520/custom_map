@@ -173,14 +173,14 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(5),
               ),
-              child: Column(
+              child: Row(
                 children: [
-                  Row(
+                  Column(
                     children: [
                       TextFormField(
                           controller: _searchController,
                           focusNode: _focusNode,
-                            onChanged: (String value) {
+                          onChanged: (String value) {
                             if (_debounce?.isActive ?? false)
                               _debounce?.cancel();
 
@@ -218,39 +218,40 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
                               setState(() {});
                             });
                           }),
-                      IconButton(
-                        padding: EdgeInsets.all(2),
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: Colors.black,
-                        ),
-                        onPressed: () => Get.back(),
-                      ),
+                      StatefulBuilder(builder: ((context, setState) {
+                        return ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount:
+                                _options.length > 5 ? 5 : _options.length,
+                            itemBuilder: (context, index) {
+                              return ListTile(
+                                title: Text(_options[index].displayname),
+                                subtitle: Text(
+                                    '${_options[index].lat},${_options[index].lon}'),
+                                onTap: () {
+                                  _mapController.move(
+                                      LatLng(_options[index].lat,
+                                          _options[index].lon),
+                                      15.0);
+
+                                  _focusNode.unfocus();
+                                  _options.clear();
+                                  setState(() {});
+                                },
+                              );
+                            });
+                      })),
                     ],
                   ),
-                  StatefulBuilder(builder: ((context, setState) {
-                    return ListView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: _options.length > 5 ? 5 : _options.length,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            title: Text(_options[index].displayname),
-                            subtitle: Text(
-                                '${_options[index].lat},${_options[index].lon}'),
-                            onTap: () {
-                              _mapController.move(
-                                  LatLng(
-                                      _options[index].lat, _options[index].lon),
-                                  15.0);
-
-                              _focusNode.unfocus();
-                              _options.clear();
-                              setState(() {});
-                            },
-                          );
-                        });
-                  })),
+                  IconButton(
+                    padding: EdgeInsets.all(2),
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: Colors.black,
+                    ),
+                    onPressed: () => Get.back(),
+                  ),
                 ],
               ),
             ),
