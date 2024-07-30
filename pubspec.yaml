@@ -1,6 +1,6 @@
 name: custom_map
 description: A neww Flutter package project a customized Map stret map.
-version: 0.3.5
+version: 0.3.6
 homepage: https://github.com/Meimounac13520/custom_map
 
 
@@ -22,6 +22,12 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: "^0.13.1"
+flutter_launcher_icons:
+  android: true
+  ios: true
+  background_color: "#hexcode"
+  image_path: "assets/images/logogam.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
