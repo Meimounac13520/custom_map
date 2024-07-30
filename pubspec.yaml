@@ -1,6 +1,6 @@
 name: custom_map
 description: A neww Flutter package project a customized Map stret map.
-version: 0.3.4
+version: 0.3.5
 homepage: https://github.com/Meimounac13520/custom_map
 
 
@@ -11,12 +11,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_map: 
+  flutter_map: ^5.0.0
   get: ^4.6.5
   hexcolor: ^3.0.1
-  http: ^0.13.5
-  flutter_open_street_map:
-  latlong2: ^0.8.1
+  http: ^1.1.0
+  flutter_open_street_map: ^0.0.4
+  latlong2: ^0.9.0
 
 dev_dependencies:
   flutter_test:

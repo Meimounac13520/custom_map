@@ -86,9 +86,9 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
   void initState() {
     _mapController = MapController();
 
-    _mapController.onReady.then((_) {
-      setNameCurrentPosAtInit();
-    });
+    // _mapController.onReady.then((_) {
+    //   setNameCurrentPosAtInit();
+    // });
 
     _mapController.mapEventStream.listen((event) async {
       if (event is MapEventMoveEnd) {
@@ -127,8 +127,8 @@ class _FlutterOpenStreetMappState extends State<FlutterOpenStreetMapp> {
                 maxZoom: 18,
                 minZoom: 6),
             mapController: _mapController,
-            layers: [
-              TileLayerOptions(
+            children: [
+              TileLayer(
                 urlTemplate:
                     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 subdomains: ['a', 'b', 'c'],
